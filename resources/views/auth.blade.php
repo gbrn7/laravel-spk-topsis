@@ -26,9 +26,9 @@
         </div>
       </div>
     </div>
-    <div class="login-right w-50 h-100">
+    <div class="login-right w-50 w-sm-75 h-100">
       <div class="row justify-content-center align-items-center h-100">
-        <div class="col-10 border border-2 signin-box p-5 rounded rounded-5 col-lg-6">
+        <div class="col-12 border border-2 signin-box p-3 p-sm-5 rounded rounded-5 col-lg-6">
           <div class="header">
             <div class="text-center">
               <h1 class="my-0 mt-lg-3">Sign In</h1>

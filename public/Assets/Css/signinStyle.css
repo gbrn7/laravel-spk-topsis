@@ -25,6 +25,10 @@
   .header h1  {
       font-size: 20px;
   }
+
+  .w-sm-75{
+    width: 75%;
+  }
 }
 
 .signin-box{
