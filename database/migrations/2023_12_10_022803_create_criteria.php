@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('criteria', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->integer('bobot');
-            $table->integer('bobot');
+            $table->string('name');
+            $table->integer('weight');
             $table->boolean('benefited');//bernilai 1 true atau 0 false untuk menandai film itu trendiing atau tidak
             $table->timestamps();
         });
