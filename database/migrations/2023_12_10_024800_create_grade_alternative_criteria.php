@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('nilai_alternative_kriteria', function (Blueprint $table) {
+        Schema::create('grade_alternatives_criteria', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('alternative_id')->constrained('alternative')->cascadeOnDelete()->cascadeOnUpdate();//membuat kolom foreign key ke kolom id dari table packages
+            $table->foreignId('alternative_id')->constrained('alternatives')->cascadeOnDelete()->cascadeOnUpdate();//membuat kolom foreign key ke kolom id dari table packages
             $table->foreignId('criteria_id')->constrained('criteria')->cascadeOnDelete()->cascadeOnUpdate();//membuat kolom foreign key ke kolom id dari table packages
             $table->integer('grade');
             $table->timestamps();
