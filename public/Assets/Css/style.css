@@ -243,6 +243,10 @@ color: black;
   animation-delay: calc(var(--uib-speed) * -0.125);
 }
 
+.card-dashboard .card .card-text{
+  font-size: 14px; 
+  }
+
 @keyframes pulse0112 {
   0%,
   100% {
