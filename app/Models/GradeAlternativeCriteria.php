@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class grade_alternative_criteria extends Model
+class GradeAlternativeCriteria extends Model
 {
     use HasFactory;
 
