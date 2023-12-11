@@ -15,8 +15,21 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('signin', [AuthController::class, 'index'])->name('signin');
 
-Route::group(['prefix' => 'topsis'], function(){
+
+Route::get('/signin', [AuthController::class, 'index'])->name('signin');
+Route::post('/signin', [AuthController::class, 'authenticate'])->name('signin.auth');
+
+Route::group(['prefix' => 'topsis', 'middleware' => ['auth']], function(){
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    
+    Route::get('logout', [AuthController::class, 'logout'])->name('signin.logout');
 });
+
+Route::any('/{any}', function () {
+
+    if(auth()->user()){
+        return redirect()->route('dashboard');
+    }
+    return redirect()->route('signin');
+})->where('any', '.*');

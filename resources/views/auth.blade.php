@@ -33,15 +33,30 @@
             <div class="text-center">
               <h1 class="my-0 mt-lg-3">Sign In</h1>
             </div>
+
+            {{-- alert here --}}
+            @if($errors->any()) {{-- handling jika ada eror --}}
+            <div class="alert alert-danger m-2">
+              <ul>
+                @foreach ($errors-> all() as $error )
+                <li>{{ $error }}</li>
+                @endforeach
+              </ul>
+            </div>
+            @endif
+
           </div>
-          <form action="#" method="post">
+          <form action="{{route('signin.auth')}}" method="post">
+            @csrf
             <div class="login-form d-flex flex-column gap-1 gap-lg-2 mt-2 mt-lg-4 mt-4">
               <label for="email">Email</label>
-              <input type="email" class="form-control" id="email" placeholder="Masukan email" />
+              <input name="email" type="email" value="{{old('password')}}" class="form-control" id="email"
+                placeholder="Masukan email" />
               <div class="password-container">
                 <label for="password">Password</label>
                 <div class="pass-wrapper position-relative d-flex">
-                  <input type="password" class="form-control" id="password" placeholder="Masukan password" />
+                  <input name="password" type="password" class="form-control" id="password"
+                    placeholder="Masukan password" />
                 </div>
               </div>
               <button class="btn btn-dark login-btn mt-1 mt-lg-2" type="submit">
