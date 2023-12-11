@@ -32,8 +32,9 @@
             <td>A1</td>
             <td>HP 14S 2023</td>
             <td class="">
-              <div class="btn-wrapper d-flex gap-2">
-                <div onclick="testing(23)" class="btn btn-warning text-white"><i class="bx bx-edit"></i></div>
+              <div class="btn-wrapper d-flex gap-2 flex-wrap">
+                <div onclick="testing(23)" class="btn btn-action btn-warning text-white"><i class="bx bx-edit"></i>
+                </div>
               </div>
             </td>
           </tr>
@@ -42,8 +43,9 @@
             <td>A2</td>
             <td>Asus TUF Gaming</td>
             <td class="">
-              <div class="btn-wrapper d-flex gap-2">
-                <duv onclick="testing(23)" href="#" class="btn btn-warning text-white"><i class="bx bx-edit"></i></duv>
+              <div class="btn-wrapper d-flex gap-2 flex-wrap">
+                <div onclick="testing(23)" href="#" class="btn btn-action btn-warning text-white"><i
+                    class="bx bx-edit"></i></div>
               </div>
             </td>
           </tr>

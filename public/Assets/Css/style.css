@@ -78,7 +78,7 @@ color: black;
 .content .dataTables_filter label {
   text-align: left;
   display: inline-block;
-  white-space: nowrap;
+  white-space: unset;
 }
 .content .dataTables_filter input {
   margin-left: 0.5rem;
@@ -86,7 +86,7 @@ color: black;
 }
 .content .dataTables_length label {
   text-align: left;
-  white-space: nowrap;
+  white-space: unset;
 }
 .content .dataTables_length label select {
   display: inline-block;
@@ -268,6 +268,18 @@ color: black;
   position: fixed;
   min-height: 100vh;
   z-index: 1;
+  }
+
+  .btn-action{
+    padding: 4px 10px;
+  }
+
+  .btn-action i{
+    font-size: 12px;
+  }
+
+  .content .dataTables_filter{
+    text-align: start;
   }
 
   #side_nav.active{

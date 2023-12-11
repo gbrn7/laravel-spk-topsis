@@ -47,12 +47,12 @@
             <td>{{$criterion->weight}}</td>
             <td>{{$criterion->benefited == 1 ? 'Benefit' : 'Cost'}}</td>
             <td class="">
-              <div class="btn-wrapper d-flex gap-2">
-                <a href="#" class="btn btn-warning text-white"><i class="bx bx-edit"></i></a>
+              <div class="btn-wrapper d-flex gap-2 flex-wrap">
+                <a href="#" class="btn btn-action btn-warning text-white"><i class="bx bx-edit"></i></a>
                 <a href="#">
                   <form action="Post">
                     <input type="hidden" name="" />
-                    <button type="submit" class="btn btn-danger">
+                    <button type="submit" class="btn btn-action btn-danger">
                       <i class="bx bx-trash text-white"></i>
                     </button>
                   </form>
