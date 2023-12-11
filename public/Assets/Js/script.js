@@ -123,16 +123,15 @@ function testing(id) {
   });
 }
 
-onload = () => {
+
+
+$(document).ready(function () {
 
   let load = document.querySelector(".loading-wrapper");
 
+  body.removeChild(load);
 
-  setTimeout(() => {
-    body.removeChild(load);
-  }, 1000);
-};
+  document.querySelector('.wrapper').classList.remove('d-none');
 
-$(document).ready(function () {
   $('#example').DataTable();
 });
