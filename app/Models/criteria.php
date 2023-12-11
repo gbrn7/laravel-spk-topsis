@@ -16,4 +16,9 @@ class Criteria extends Model
         'weight',
         'benefited',
     ];
+
+    public function getTableColumns()
+    {
+        return $this->getConnection()->getSchemaBuilder()->getColumnListing($this->getTable());
+    }
 }

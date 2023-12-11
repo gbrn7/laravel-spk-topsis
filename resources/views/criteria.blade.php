@@ -19,6 +19,13 @@
     <div class="btn-wrapper mt-2">
       <div class="btn btn-outline-success">Tambah Kriteria</div>
     </div>
+
+    @if(session()-> has('success'))
+    <div class="alert alert-success">
+      {{session('success')}}
+    </div>
+    @endif
+
     <div class="Produk mt-2 mb-2">
       <table id="example" class="table table-striped mt-3 table-hover" style="width: 100%">
         <thead>
@@ -32,12 +39,13 @@
           </tr>
         </thead>
         <tbody>
+          @foreach ($criteria as $criterion)
           <tr>
-            <td>01</td>
-            <td>C1</td>
-            <td>Memory</td>
-            <td>20</td>
-            <td>Benefit</td>
+            <td>{{$criterion->id}}</td>
+            <td>C{{$loop->iteration}}</td>
+            <td>{{$criterion->name}}</td>
+            <td>{{$criterion->weight}}</td>
+            <td>{{$criterion->benefited == 1 ? 'Benefit' : 'Cost'}}</td>
             <td class="">
               <div class="btn-wrapper d-flex gap-2">
                 <a href="#" class="btn btn-warning text-white"><i class="bx bx-edit"></i></a>
@@ -52,27 +60,7 @@
               </div>
             </td>
           </tr>
-          <tr>
-            <td>02</td>
-            <td>C2</td>
-            <td>Ram</td>
-            <td>25</td>
-            <td>Benefit</td>
-            <td class="">
-              <div class="btn-wrapper d-flex gap-2">
-                <a href="#" class="btn btn-warning text-white"><i class="bx bx-edit"></i></a>
-                <a href="#">
-                  <form action="Post">
-                    <input type="hidden" name="" />
-                    <button type="submit" class="btn btn-danger">
-                      <i class="bx bx-trash text-white"></i>
-                    </button>
-                  </form>
-                </a>
-              </div>
-            </td>
-          </tr>
-
+          @endforeach
         </tbody>
         <tfoot>
           <tr>

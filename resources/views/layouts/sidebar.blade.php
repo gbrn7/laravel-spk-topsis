@@ -9,11 +9,13 @@
   <div class="list-box  d-flex flex-column justify-content-between gap-5">
     <ul class="list-unstyled px-3 pt-3 d-flex flex-column gap-2">
       <li class="rounded {{Request::segment(2) === 'dashboard' ? 'active' : ''}} rounded-2">
-        <a href="#" class="text-decoration-none px-3 py-3 rounded rounded-2 d-flex align-items-baseline"><i
+        <a href="{{route('dashboard')}}"
+          class="text-decoration-none px-3 py-3 rounded rounded-2 d-flex align-items-baseline"><i
             class="ri-dashboard-fill me-2"></i>Dashboard</a>
       </li>
       <li class="rounded {{Request::segment(2) === 'criteria' ? 'active' : ''}} rounded-2">
-        <a href="#" class="text-decoration-none px-3 py-3 rounded rounded-2 d-flex align-items-baseline"><i
+        <a href="{{route('criteria')}}"
+          class="text-decoration-none px-3 py-3 rounded rounded-2 d-flex align-items-baseline"><i
             class="bx bx-data me-2"></i>Data Kriteria</a>
       </li>
       <li class="rounded {{Request::segment(2) === 'alternatives' ? 'active' : ''}} rounded-2">

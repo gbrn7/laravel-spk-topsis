@@ -17,7 +17,7 @@
 <div class="content-box p-3 mt-3 rounded rounded-2 bg-white">
   <div class="content rounded rounded-2 border border-1 p-3">
     <div class="row row-gap-3">
-      <a href="#" class="col-sm-6 card-dashboard text-decoration-none">
+      <a href="{{route('criteria')}}" class="col-sm-6 card-dashboard text-decoration-none">
         <div class="card ">
           <div class="card-body  row justify-content-between align-items-center">
             <div class="card-body-content col-9">

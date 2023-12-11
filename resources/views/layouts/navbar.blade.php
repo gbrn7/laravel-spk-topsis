@@ -14,7 +14,7 @@
       <ul class="navbar-nav mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link d-flex align-items-center gap-1 " aria-current="page" href="#"><i
-              class='bx bxs-user-circle fs-1'></i> Admin</a>
+              class='bx bxs-user-circle fs-1'></i> {{auth()->user()->name}}</a>
         </li>
       </ul>
     </div>
