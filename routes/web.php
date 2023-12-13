@@ -23,9 +23,18 @@ Route::post('/signin', [AuthController::class, 'authenticate'])->name('signin.au
 
 Route::group(['prefix' => 'topsis', 'middleware' => ['auth']], function(){
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/criteria', [CriteriaController::class, 'index'])->name('criteria');
+
+    Route::prefix('criteria')->group(function () {
+        Route::get('/', [CriteriaController::class, 'index'])->name('criteria');   
+        Route::post('/store', [CriteriaController::class, 'store'])->name('criteria.store');   
+        Route::put('/update', [CriteriaController::class, 'update'])->name('criteria.update');   
+        Route::delete('/destroy', [CriteriaController::class, 'delete'])->name('criteria.destroy');   
+    });
+
     Route::get('logout', [AuthController::class, 'logout'])->name('signin.logout');
 });
+
+
 
 Route::any('/{any}', function () {
 

@@ -31,9 +31,7 @@ class AuthController extends Controller
             return redirect()->route('dashboard');
         }
         
-        return back()->withErrors([
-            'error' => 'Email or Password Incorrect'
-        ]);
+        return back()->with('toast_error', 'Email or Password Incorrect')->withInput();
     }
 
     public function logout(Request $request){

@@ -17,14 +17,22 @@
 <div class="content-box p-3 mt-3 rounded rounded-2 bg-white">
   <div class="content rounded rounded-2 border border-1 p-3">
     <div class="btn-wrapper mt-2">
-      <div class="btn btn-outline-success">Tambah Kriteria</div>
-    </div>
 
-    @if(session()-> has('success'))
-    <div class="alert alert-success">
-      {{session('success')}}
+      {{-- Error Alert --}}
+      @if ($errors->any())
+      <div class="alert alert-danger">
+        <ul>
+          @foreach ($errors->all() as $error)
+          <li>{{$error}}</li>
+          @endforeach
+        </ul>
+      </div>
+      @endif
+
+      <div class="btn btn-success" id="add" data-bs-toggle="modal" data-bs-target="#addnew"><i
+          class="ri-add-box-line"></i> Tambah Kriteria
+      </div>
     </div>
-    @endif
 
     <div class="Produk mt-2 mb-2">
       <table id="example" class="table table-striped mt-3 table-hover" style="width: 100%">
@@ -38,7 +46,7 @@
             <th>Aksi</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="tableBody">
           @foreach ($criteria as $criterion)
           <tr>
             <td>{{$criterion->id}}</td>
@@ -48,14 +56,12 @@
             <td>{{$criterion->benefited == 1 ? 'Benefit' : 'Cost'}}</td>
             <td class="">
               <div class="btn-wrapper d-flex gap-2 flex-wrap">
-                <a href="#" class="btn btn-action btn-warning text-white"><i class="bx bx-edit"></i></a>
-                <a href="#">
-                  <form action="Post">
-                    <input type="hidden" name="" />
-                    <button type="submit" class="btn btn-action btn-danger">
-                      <i class="bx bx-trash text-white"></i>
-                    </button>
-                  </form>
+                <a href="#" data-id="{{$criterion->id}}" data-name="{{$criterion->name}}"
+                  data-weight="{{$criterion->weight}}" data-benefited="{{$criterion->benefited}}"
+                  class="btn edit btn-action btn-warning text-white"><i class="bx bx-edit"></i></a>
+                <a href="#" class="delete btn btn-action btn-danger text-white" data-name="{{$criterion->name}}"
+                  data-id="{{$criterion->id}}">
+                  <i class="bx bx-trash"></i>
                 </a>
               </div>
             </td>
@@ -76,4 +82,56 @@
     </div>
   </div>
 </div>
+
+@include('modal.criteriaModal')
+
 @endsection
+
+@push('js')
+<script type="text/javascript">
+  $(document).ready(function(){
+      
+      // $.ajaxSetup({
+      //     headers: {
+      //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      //     }
+      // });
+
+       
+      $(document).on('click', '.edit', function (event){
+          event.preventDefault();
+          var id = $(this).data('id');
+          var name = $(this).data('name');
+          var weight = $(this).data('weight');
+          var benefited = $(this).data('benefited');
+          $('#editmodal').modal('show');
+          $('#name-edit').val(name);
+          $('#weight-edit').val(weight);
+          $('#benefited-edit').val(benefited);
+          $('#edit-id').val(id);
+      });
+       
+      $(document).on('click', '.delete', function(event){
+          event.preventDefault();
+          var id = $(this).data('id');
+          var name = $(this).data('name');
+          $('#deletemodal').modal('show');
+          $('#delete-id').val(id);
+          $('.criteria-name').html(name);
+      });
+       
+       
+      // $('#deletecriteria').click(function(){
+      //     var id = $(this).data('id');
+          
+      //     $.post("{{ route('criteria.store') }}",{id:id}, function(){
+      //         $('#deletemodal').modal('hide');
+      //         showCriteria();
+      //     })
+      // });
+       
+  });
+
+    
+</script>
+@endpush

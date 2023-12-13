@@ -18,6 +18,8 @@
 </head>
 
 <body>
+  {{-- Sweet alert --}}
+  @include('sweetalert::alert')
   <section class="login d-flex justify-content-center justify-content-lg-between">
     <div class="login-left w-50 h-100 d-none d-lg-block">
       <div class="row justify-content-center align-items-center h-100">
@@ -55,7 +57,7 @@
               <div class="password-container">
                 <label for="password">Password</label>
                 <div class="pass-wrapper position-relative d-flex">
-                  <input name="password" type="password" class="form-control" id="password"
+                  <input name="password" type="password" class="form-control" value="{{old('password')}}" id="password"
                     placeholder="Masukan password" />
                 </div>
               </div>
