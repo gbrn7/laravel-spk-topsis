@@ -29,7 +29,8 @@
       </div>
       @endif
 
-      <div class="btn btn-success"><i class="ri-add-box-line"></i> Tambah Alternatif</div>
+      <div id="add" data-bs-toggle="modal" data-bs-target="#addnew" class="btn btn-success"><i
+          class="ri-add-box-line"></i> Tambah Alternatif</div>
     </div>
     <div class="Produk mt-2 mb-2">
       <table id="example" class="table table-striped mt-3 table-hover" style="width: 100%">
@@ -72,4 +73,31 @@
     </div>
   </div>
 </div>
+
+@include('modal.alternativeModal')
+
 @endsection
+
+@push('js')
+<script type="text/javascript">
+  $(document).on('click', '.edit', function (event){
+          event.preventDefault();
+          var id = $(this).data('id');
+          var name = $(this).data('name');
+          var weight = $(this).data('weight');
+          var benefited = $(this).data('benefited');
+          $('#editmodal').modal('show');
+          $('#name-edit').val(name);
+          $('#edit-id').val(id);
+      });
+       
+      $(document).on('click', '.delete', function(event){
+          event.preventDefault();
+          var id = $(this).data('id');
+          var name = $(this).data('name');
+          $('#deletemodal').modal('show');
+          $('#delete-id').val(id);
+          $('.alternative-name').html(name);
+      });
+</script>
+@endpush

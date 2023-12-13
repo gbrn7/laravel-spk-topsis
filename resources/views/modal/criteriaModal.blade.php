@@ -11,7 +11,8 @@
           @csrf
           <div class="form-group mb-3">
             <label for="nama" class="mb-1">Nama Kriteria</label>
-            <input required class="form-control" type="text" name="name" id="name" placeholder="Masukkan Kriteria" />
+            <input required class="form-control" type="text" name="name" id="name"
+              placeholder="Masukkan Nama Kriteria" />
           </div>
           <div class="form-group mb-3">
             <label for="berat" class="mb-1">Bobot Kriteria</label>
@@ -20,7 +21,7 @@
           </div>
           <div class="form-group mb-3">
             <label for="Status" class="mb-1">Jenis Kriteria</label>
-            <select required id="benefited" name="benefited" class="form-select status text-secondary"
+            <select required id="benefited" name="benefited" class="form-select status"
               aria-label="Default select example">
               <option class="text-secondary" value="">
                 Klik untuk memilih jenis kriteria
@@ -54,15 +55,15 @@
           <input type="hidden" name="id" id="edit-id">
           <div class="form-group mb-3">
             <label for="nama" class="mb-1">Nama Kriteria</label>
-            <input class="form-control" type="text" name="name" id="name-edit" placeholder="Ram" />
+            <input class="form-control" type="text" required name="name" id="name-edit" placeholder="Ram" />
           </div>
           <div class="form-group mb-3">
             <label for="weight" class="mb-1">Bobot Kriteria</label>
-            <input class="form-control" type="number" name="weight" id="weight-edit" placeholder="20" />
+            <input class="form-control" type="number" required name="weight" id="weight-edit" placeholder="20" />
           </div>
           <div class="form-group mb-3">
             <label for="Status" class="mb-1">Jenis Kriteria</label>
-            <select id="benefited-edit" name="benefited" class="form-select jenis status text-secondary"
+            <select id="benefited-edit" required name="benefited" class="form-select jenis status "
               aria-label="Default select example">
               <option value=0 class="text-secondary">Cost</option>
               <option value=1 class="text-secondary">Benefit</option>
