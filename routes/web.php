@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CriteriaController;
+use App\Http\Controllers\AlternativeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,13 @@ Route::group(['prefix' => 'topsis', 'middleware' => ['auth']], function(){
         Route::post('/store', [CriteriaController::class, 'store'])->name('criteria.store');   
         Route::put('/update', [CriteriaController::class, 'update'])->name('criteria.update');   
         Route::delete('/destroy', [CriteriaController::class, 'delete'])->name('criteria.destroy');   
+    });
+
+    Route::prefix('alternatives')->group(function () {
+        Route::get('/', [AlternativeController::class, 'index'])->name('alternatives');   
+        Route::post('/store', [AlternativeController::class, 'store'])->name('alternative.store');   
+        Route::put('/update', [AlternativeController::class, 'update'])->name('alternative.update');   
+        Route::delete('/destroy', [AlternativeController::class, 'delete'])->name('alternative.destroy');   
     });
 
     Route::get('logout', [AuthController::class, 'logout'])->name('signin.logout');

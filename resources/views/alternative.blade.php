@@ -1,8 +1,8 @@
 @extends('layouts.base')
 
 @section('content')
-<div class="title-box  d-flex gap-2 align-items-baseline"><i class="bx bx-data fs-2"></i>
-  <p class="fs-3 m-0">Data Kriteria</p>
+<div class="title-box  d-flex gap-2 align-items-baseline"><i class="ri-team-line fs-2"></i>
+  <p class="fs-3 m-0">Data Alternatif</p>
 </div>
 <div class="breadcrumbs-box mt-2 rounded rounded-2 bg-white p-2">
   <nav
@@ -17,7 +17,19 @@
 <div class="content-box p-3 mt-3 rounded rounded-2 bg-white">
   <div class="content rounded rounded-2 border border-1 p-3">
     <div class="btn-wrapper mt-2">
-      <div class="btn btn-outline-success" onclick="createAlternative()">Tambah Alternatif</div>
+
+      {{-- Error Alert --}}
+      @if ($errors->any())
+      <div class="alert alert-danger">
+        <ul>
+          @foreach ($errors->all() as $error)
+          <li>{{$error}}</li>
+          @endforeach
+        </ul>
+      </div>
+      @endif
+
+      <div class="btn btn-success"><i class="ri-add-box-line"></i> Tambah Alternatif</div>
     </div>
     <div class="Produk mt-2 mb-2">
       <table id="example" class="table table-striped mt-3 table-hover" style="width: 100%">
@@ -29,46 +41,24 @@
             <th>Aksi</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="tableBody">
+          @foreach ($alternatives as $alternative)
           <tr>
-            <td>01</td>
-            <td>A1</td>
-            <td>HP 14S 2023</td>
+            <td>{{$alternative->id}}</td>
+            <td>A{{$loop->iteration}}</td>
+            <td>{{$alternative->name}}</td>
             <td class="">
               <div class="btn-wrapper d-flex gap-2 flex-wrap">
-                <a href="#" onclick="updateAlternative()" class="btn btn-warning text-white"><i
-                    class="bx bx-edit"></i></a>
-                <a href="#" onclick="deleteAlternative()">
-                  <form action="Post">
-                    <input type="hidden" name="" />
-                    <button type="submit" class="btn btn-danger">
-                      <i class="bx bx-trash text-white"></i>
-                    </button>
-                  </form>
+                <a href="#" data-id="{{$alternative->id}}" data-name="{{$alternative->name}}"
+                  class="btn edit btn-action btn-warning text-white"><i class="bx bx-edit"></i></a>
+                <a href="#" class="delete btn btn-action btn-danger text-white" data-name="{{$alternative->name}}"
+                  data-id="{{$alternative->id}}">
+                  <i class="bx bx-trash"></i>
                 </a>
               </div>
             </td>
           </tr>
-          <tr>
-            <td>02</td>
-            <td>A2</td>
-            <td>Asus TUF Gaming</td>
-            <td class="">
-              <div class="btn-wrapper d-flex gap-2 flex-wrap">
-                <a href="#" onclick="updateAlternative()" class="btn btn-action btn-warning text-white"><i
-                    class="bx bx-edit"></i></a>
-                <a href="#" onclick="deleteAlternative()">
-                  <form action="Post">
-                    <input type="hidden" name="" />
-                    <button type="submit" class="btn btn-action btn-danger">
-                      <i class="bx bx-trash text-white"></i>
-                    </button>
-                  </form>
-                </a>
-              </div>
-            </td>
-          </tr>
-
+          @endforeach
         </tbody>
         <tfoot>
           <tr>

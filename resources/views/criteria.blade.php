@@ -121,15 +121,6 @@
       });
        
        
-      // $('#deletecriteria').click(function(){
-      //     var id = $(this).data('id');
-          
-      //     $.post("{{ route('criteria.store') }}",{id:id}, function(){
-      //         $('#deletemodal').modal('hide');
-      //         showCriteria();
-      //     })
-      // });
-       
   });
 
     
