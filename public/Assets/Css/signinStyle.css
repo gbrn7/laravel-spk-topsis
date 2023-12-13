@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@100;300;400;500;600;700;900&display=swap");
 
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
 .login {
   height: 100vh;
 }
@@ -12,7 +16,6 @@
 }
 
 .header h1 {
-  font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 36px;
@@ -42,7 +45,6 @@ border: 1px solid rgba(255, 255, 255, 0.23);
 }
 
 .login-form label {
-  font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 14px;
@@ -51,7 +53,6 @@ border: 1px solid rgba(255, 255, 255, 0.23);
 }
 
 .login-form input {
-  font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -78,7 +79,6 @@ border: 1px solid rgba(255, 255, 255, 0.23);
 }
 
 .login-form span {
-  font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 13px;

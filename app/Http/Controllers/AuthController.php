@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
@@ -17,10 +17,14 @@ class AuthController extends Controller
 
     public function authenticate(Request $request){
 
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'email' => 'required|email',
             'password' => 'required',
         ]);
+    
+        if ($validator->fails()) {
+            return back()->with('toast_error', join(', ', $validator->messages()->all()))->withInput();
+        }
 
         $credentials = $request->only('email', 'password');
         
@@ -28,7 +32,7 @@ class AuthController extends Controller
 
             $request->session()->regenerate();
 
-            return redirect()->route('dashboard');
+            return redirect()->route('dashboard')->with('toast_success', 'Pendaftaran Berhasil');
         }
         
         return back()->with('toast_error', 'Email or Password Incorrect')->withInput();
@@ -41,6 +45,6 @@ class AuthController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect()->route('signin');
+        return redirect()->route('signIn');
     }
 }

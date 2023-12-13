@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\SignUpController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CriteriaController;
 use App\Http\Controllers\AlternativeController;
@@ -19,8 +20,11 @@ use App\Http\Controllers\AlternativeController;
 
 
 
-Route::get('/signin', [AuthController::class, 'index'])->name('signin');
-Route::post('/signin', [AuthController::class, 'authenticate'])->name('signin.auth');
+Route::get('/signIn', [AuthController::class, 'index'])->name('signIn');
+Route::post('/signIn', [AuthController::class, 'authenticate'])->name('signin.auth');
+
+Route::get('/signUp', [SignUpController::class, 'index'])->name('signUp');
+Route::post('/signUp', [SignUpController::class, 'store'])->name('signUp.store');
 
 Route::group(['prefix' => 'topsis', 'middleware' => ['auth']], function(){
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -49,5 +53,5 @@ Route::any('/{any}', function () {
     if(auth()->user()){
         return redirect()->route('dashboard');
     }
-    return redirect()->route('signin');
+    return redirect()->route('signIn');
 })->where('any', '.*');
