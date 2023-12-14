@@ -11,7 +11,7 @@ class SignUpController extends Controller
 {
     public function index()
     {
-        return view('signup');
+        return view('signUp');
     }
 
     public function store(Request $request)
@@ -23,7 +23,7 @@ class SignUpController extends Controller
         ]);
     
         if ($validator->fails()) {
-            return back()->with('toast_error', join(', ', $validator->messages()->all()))->withInput();
+            return back()->with('toast_error', join('!, ', $validator->messages()->all()))->withInput();
         }
 
         $data = $request->except('_token');;

@@ -12,7 +12,7 @@ class AuthController extends Controller
 
         auth()->user() ? redirect()->route('dashboard')  : null; 
 
-        return view('auth');
+        return view('siginIn');
     }
 
     public function authenticate(Request $request){
@@ -35,7 +35,7 @@ class AuthController extends Controller
             return redirect()->route('dashboard')->with('toast_success', 'Berhasil Masuk!');
         }
         
-        return back()->with('toast_error', 'Email or Password Incorrect')->withInput();
+        return back()->with('toast_error', 'Email atau Password yang masukkan tidak valid!')->withInput();
     }
 
     public function logout(Request $request){
