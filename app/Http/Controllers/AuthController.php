@@ -32,7 +32,7 @@ class AuthController extends Controller
 
             $request->session()->regenerate();
 
-            return redirect()->route('dashboard')->with('toast_success', 'Pendaftaran Berhasil');
+            return redirect()->route('dashboard')->with('toast_success', 'Berhasil Masuk!');
         }
         
         return back()->with('toast_error', 'Email or Password Incorrect')->withInput();

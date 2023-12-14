@@ -33,5 +33,5 @@ class SignUpController extends Controller
         // dd($data);
         User::create($data);
 
-        return redirect()->route('signIn')->with('toast_success', 'Pendaftaran Berhasil');
+        return redirect()->route('signIn')->with('toast_success', 'Pendaftaran Berhasil!');
     }}
