@@ -30,8 +30,8 @@ class grade_alternatives_criteria extends Seeder
                 'updated_at' => now()
             ],
             [
-                'alternative_id' => 1,
-                'criteria_id' => 2,
+                'alternative_id' => 2,
+                'criteria_id' => 1,
                 'grade' => 58,
                 'created_at' => now(),
                 'updated_at' => now()

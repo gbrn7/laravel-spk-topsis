@@ -16,7 +16,7 @@
       <li class="rounded {{Request::segment(2) === 'criteria' ? 'active' : ''}} rounded-2">
         <a href="{{route('criteria')}}"
           class="text-decoration-none px-3 py-3 rounded rounded-2 d-flex align-items-baseline"><i
-            class="bx bx-data me-2"></i>Data Kriteria</a>
+            class="ri-database-2-line me-2"></i>Data Kriteria</a>
       </li>
       <li class="rounded {{Request::segment(2) === 'alternatives' ? 'active' : ''}} rounded-2">
         <a href="{{route('alternatives')}}"

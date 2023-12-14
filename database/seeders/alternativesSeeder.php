@@ -25,16 +25,6 @@ class alternativesSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            [
-                'name' => 'Lenovo ThinkPad 16',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'name' => 'Acer Predator 16s',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
         ]);
     }
 }

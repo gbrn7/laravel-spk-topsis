@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Criteria;
+use App\Models\Alternative;
+use App\Models\GradeAlternativeCriteria;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class CriteriaController extends Controller
@@ -22,7 +24,20 @@ class CriteriaController extends Controller
             'weight' => 'required|numeric|min:0',
             'benefited' => 'required|numeric|min:0|max:1',
         ]);
-        Criteria::create($newCriteria);
+        $newCriteria = Criteria::create($newCriteria);
+
+        $allAlternative = Alternative::all();
+        $gradeData = [];
+        foreach ($allAlternative as $alternative) {
+            array_push($gradeData, [
+                'alternative_id' => $alternative->id,
+                'criteria_id' => $newCriteria->id,
+                'grade' => 0,
+                'created_at' => now(),
+                'updated_at' => now()
+            ]);
+        }
+        $gradeDataa = GradeAlternativeCriteria::insert($gradeData);
         return redirect()->route('criteria')->with('toast_success', 'Kriteria '.$request->name.' ditambahkan!');
     }
 

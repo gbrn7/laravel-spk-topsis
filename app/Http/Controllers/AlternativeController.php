@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Alternative;
+use App\Models\Criteria;
+use App\Models\GradeAlternativeCriteria;
 
 class AlternativeController extends Controller
 {
@@ -18,7 +20,21 @@ class AlternativeController extends Controller
         $request->validate([
             'name' => 'required|string',
         ]);
-        Alternative::create($newAlternative);
+        $newAlternative = Alternative::create($newAlternative);
+
+        $allCriteria = Criteria::all();
+        $gradeData = [];
+        foreach ($allCriteria as $criterion) {
+            array_push($gradeData, [
+                'alternative_id' => $newAlternative->id,
+                'criteria_id' => $criterion->id,
+                'grade' => 0,
+                'created_at' => now(),
+                'updated_at' => now()
+            ]);
+        }
+        $gradeDataa = GradeAlternativeCriteria::insert($gradeData);
+
         return redirect()->route('alternatives')->with('toast_success', 'Alternatif '.$request->name.' ditambahkan!');
     }
 

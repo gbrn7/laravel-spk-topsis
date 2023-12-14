@@ -12,6 +12,7 @@ class Alternative extends Model
     protected $table = 'alternatives';
 
     protected $fillable = [
+        'id',
         'name',
     ];
 }
