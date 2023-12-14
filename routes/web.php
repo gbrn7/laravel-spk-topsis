@@ -6,6 +6,7 @@ use App\Http\Controllers\SignUpController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CriteriaController;
 use App\Http\Controllers\AlternativeController;
+use App\Http\Controllers\GradeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,13 @@ Route::group(['prefix' => 'topsis', 'middleware' => ['auth']], function(){
         Route::post('/store', [AlternativeController::class, 'store'])->name('alternative.store');   
         Route::put('/update', [AlternativeController::class, 'update'])->name('alternative.update');   
         Route::delete('/destroy', [AlternativeController::class, 'delete'])->name('alternative.destroy');   
+    });
+
+    Route::prefix('grades')->group(function () {
+        Route::get('/', [GradeController::class, 'index'])->name('grades');   
+        // Route::post('/store', [AlternativeController::class, 'store'])->name('alternative.store');   
+        // Route::put('/update', [AlternativeController::class, 'update'])->name('alternative.update');   
+        // Route::delete('/destroy', [AlternativeController::class, 'delete'])->name('alternative.destroy');   
     });
 
     Route::get('logout', [AuthController::class, 'logout'])->name('signin.logout');
