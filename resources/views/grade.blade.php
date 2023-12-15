@@ -27,29 +27,20 @@
           </tr>
         </thead>
         <tbody>
+          @foreach ($alternatives as $alternative)
           <tr>
-            <td>01</td>
-            <td>A1</td>
-            <td>HP 14S 2023</td>
+            <td>{{$alternative->id}}</td>
+            <td>A{{$loop->iteration}}</td>
+            <td>{{$alternative->name}}</td>
             <td class="">
               <div class="btn-wrapper d-flex gap-2 flex-wrap">
-                <div onclick="testing(23)" class="btn btn-action btn-warning text-white"><i class="bx bx-edit"></i>
-                </div>
+                <a href="#" data-id="{{$alternative->id}}" data-name="{{$alternative->name}}"
+                  class="btn edit btn-action btn-warning text-white"><i class="bx bx-edit"></i></a>
+                </a>
               </div>
             </td>
           </tr>
-          <tr>
-            <td>02</td>
-            <td>A2</td>
-            <td>Asus TUF Gaming</td>
-            <td class="">
-              <div class="btn-wrapper d-flex gap-2 flex-wrap">
-                <div onclick="testing(23)" href="#" class="btn btn-action btn-warning text-white"><i
-                    class="bx bx-edit"></i></div>
-              </div>
-            </td>
-          </tr>
-
+          @endforeach
         </tbody>
         <tfoot>
           <tr>
@@ -63,4 +54,23 @@
     </div>
   </div>
 </div>
+@include('modal.gradeModal.gradeModalBase')
 @endsection
+
+@push('js')
+<script type="text/javascript">
+  $(document).on('click', '.edit', function (event){
+          var id = $(this).data('id');
+          event.preventDefault();
+          $('#editmodal').modal('show');
+          getGradeForms(id);
+      });
+
+  function getGradeForms(id){
+    $.get("{{ route('grades.getForms') }}",{id:id}, function(data){
+        $('#editmodal').empty().html(data);
+    })
+  }
+
+</script>
+@endpush

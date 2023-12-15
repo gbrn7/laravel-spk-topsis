@@ -46,8 +46,8 @@ Route::group(['prefix' => 'topsis', 'middleware' => ['auth']], function(){
 
     Route::prefix('grades')->group(function () {
         Route::get('/', [GradeController::class, 'index'])->name('grades');   
-        // Route::post('/store', [AlternativeController::class, 'store'])->name('alternative.store');   
-        // Route::put('/update', [AlternativeController::class, 'update'])->name('alternative.update');   
+        Route::get('/getForms', [GradeController::class, 'getForms'])->name('grades.getForms');   
+        Route::put('/update', [GradeController::class, 'update'])->name('grades.update');   
         // Route::delete('/destroy', [AlternativeController::class, 'delete'])->name('alternative.destroy');   
     });
 

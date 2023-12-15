@@ -39,11 +39,11 @@
           <input type="hidden" name="id" id="edit-id">
           <div class="form-group mb-3">
             <label for="nama" class="mb-1">Nama Alternatif</label>
-            <input class="form-control" type="text" name="name" id="name-edit" placeholder="Ram" required />
+            <input class="form-control" type="text" name="name" id="name-edit" placeholder="Toshiba" required />
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
           <button type="submit" class="btn btn-warning text-white">Update</button>
         </div>
       </div>

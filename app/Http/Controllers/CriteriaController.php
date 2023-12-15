@@ -36,8 +36,9 @@ class CriteriaController extends Controller
                 'created_at' => now(),
                 'updated_at' => now()
             ]);
-        }
+    }
         $gradeDataa = GradeAlternativeCriteria::insert($gradeData);
+        
         return redirect()->route('criteria')->with('toast_success', 'Kriteria '.$request->name.' ditambahkan!');
     }
 
