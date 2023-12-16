@@ -29,7 +29,8 @@
             class="ri-survey-line me-2"></i>Data Penilaian</a>
       </li>
       <li class="rounded {{Request::segment(2) === 'calculations' ? 'active' : ''}} rounded-2">
-        <a href="#" class="text-decoration-none px-3 py-3 rounded rounded-2 d-flex align-items-baseline"><i
+        <a href="{{route('calculations')}}"
+          class="text-decoration-none px-3 py-3 rounded rounded-2 d-flex align-items-baseline"><i
             class="ri-calculator-line me-2"></i></i>Data Perhitungan</a>
       </li>
       <li class="rounded {{Request::segment(2) === 'result' ? 'active' : ''}} rounded-2">
