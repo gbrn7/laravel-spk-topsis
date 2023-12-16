@@ -21,10 +21,6 @@ class GradeController extends Controller
             'criteria',
         ])->where('id', $id)->get();
 
-        if (count($forms) === 0) {
-           return view('modal.gradeModal.gradeFornNull');
-       }
-
         return view('modal.gradeModal.gradeForm', compact('forms'));
     }
 
