@@ -30,18 +30,14 @@
           </tr>
         </thead>
         <tbody>
+          @foreach ($sortedResults as $sortedResult)
           <tr>
-            <td>A1</td>
-            <td>Asus Tuf Gaming</td>
-            <td>0.2626</td>
-            <td>1</td>
+            <td>{{$sortedResult->code}}</td>
+            <td>{{$sortedResult->name}}</td>
+            <td>{{$sortedResult->grade}}</td>
+            <td>{{$sortedResult->rank}}</td>
           </tr>
-          <tr>
-            <td>A2</td>
-            <td>hp 14s</td>
-            <td>0.89898</td>
-            <td>2</td>
-          </tr>
+          @endforeach
         </tbody>
         <tfoot>
           <thead>
