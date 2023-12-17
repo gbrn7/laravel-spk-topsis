@@ -12,13 +12,16 @@ use Illuminate\Support\Collection;
 class CalculationsController extends Controller
 {
     public function index(){
-        $criteria = Criteria::all();
-        $alternatives = Alternative::all();
-        $decisionMatrix = $this->getDecisionMatrix();
+        $criteria = Criteria::where('user_id', '=', auth()->user()->id)->get();
+        $alternatives = Alternative::where('user_id', '=', auth()->user()->id)->get();
+        if(count($criteria) == 0 || count($alternatives) == 0){
+            return view('modal.calculationModal.noCalculationModal');
+        }
+        $decisionMatrix = $this->getDecisionMatrix($alternatives);
         $normMatrix = $this->norm($decisionMatrix);
-        $weightedNorm = $this->getWeightedNorm($normMatrix);
-        $idealPositive = $this->getIdealPositive($weightedNorm);
-        $idealNegative = $this->getIdealNegative($weightedNorm);
+        $weightedNorm = $this->getWeightedNorm($normMatrix, $criteria);
+        $idealPositive = $this->getIdealPositive($weightedNorm, $criteria);
+        $idealNegative = $this->getIdealNegative($weightedNorm, $criteria);
         $solutionPositive = $this->getSolutionPositive($weightedNorm, $idealPositive);
         $solutionNegative = $this->getSolutionNegative($weightedNorm, $idealNegative);
         $PreferenceValue = $this->getPreferenceValue($solutionPositive, $solutionNegative);
@@ -27,9 +30,7 @@ class CalculationsController extends Controller
         return view('calculation', compact('decisionMatrix', 'normMatrix', 'weightedNorm', 'idealPositive', 'idealNegative', 'solutionPositive', 'solutionNegative', 'PreferenceValue', 'criteria', 'alternatives'));
     }
 
-    public function getDecisionMatrix(){
-        $alternatives = Alternative::all();
-
+    public function getDecisionMatrix($alternatives){
         $matrix = [];
         foreach ($alternatives as $key => $alternative) {
            $GradesData = Grade::where('alternative_id', '=', $alternative->id)
@@ -78,8 +79,7 @@ class CalculationsController extends Controller
         return $result;
     }
 
-    public function getWeightedNorm($normMatrix){
-        $criteria = Criteria::all();
+    public function getWeightedNorm($normMatrix, $criteria){
         $result = [];
         for ($i=0; $i < count($normMatrix); $i++) { 
             $temp = [];
@@ -93,8 +93,7 @@ class CalculationsController extends Controller
         return $result;
     }
 
-    public function getIdealPositive($weightedNorm){
-        $criteria = Criteria::all('benefited');
+    public function getIdealPositive($weightedNorm, $criteria){
         $result = [];
 
             for ($j=0; $j < count($weightedNorm[0]); $j++) { 
@@ -109,8 +108,7 @@ class CalculationsController extends Controller
         return $result;
     }
 
-    public function getIdealNegative($weightedNorm){
-        $criteria = Criteria::all('benefited');
+    public function getIdealNegative($weightedNorm, $criteria){
         $result = [];
 
             for ($j=0; $j < count($weightedNorm[0]); $j++) { 

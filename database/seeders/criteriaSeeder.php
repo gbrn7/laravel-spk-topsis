@@ -16,16 +16,42 @@ class criteriaSeeder extends Seeder
     {
         DB::table('criteria')->insert([
             [
-                'name' => 'Memori',
-                'weight' => 25,
+                'name' => 'Harga',
+                'weight' => 5,
                 'benefited' => 1,
+                'user_id' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
-                'name' => 'Ram',
-                'weight' => 25,
+                'name' => 'Lokasi',
+                'weight' => 4,
                 'benefited' => 1,
+                'user_id' => 1,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'name' => 'Fasilitas',
+                'weight' => 3,
+                'benefited' => 1,
+                'user_id' => 1,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'name' => 'Lingkungan',
+                'weight' => 4,
+                'benefited' => 1,
+                'user_id' => 1,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'name' => 'Desain Rumah',
+                'weight' => 3,
+                'benefited' => 1,
+                'user_id' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],

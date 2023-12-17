@@ -10,8 +10,7 @@ use App\Models\GradeAlternativeCriteria;
 class AlternativeController extends Controller
 {
     public function index(){
-        $alternatives = Alternative::all();
-        
+        $alternatives = Alternative::where('user_id', '=', auth()->user()->id)->get();        
         return view('alternative', compact('alternatives'));
     }
 
@@ -22,7 +21,7 @@ class AlternativeController extends Controller
         ]);
         $newAlternative = Alternative::create($newAlternative);
 
-        $allCriteria = Criteria::all();
+        $allCriteria = Criteria::where('user_id', '=', auth()->user()->id)->get();
         $gradeData = [];
         foreach ($allCriteria as $criterion) {
             array_push($gradeData, [

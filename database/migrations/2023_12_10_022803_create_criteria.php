@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('weight');
             $table->boolean('benefited');//bernilai 1 true atau 0 false untuk menandai film itu trendiing atau tidak
+            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });
     }

@@ -3,7 +3,7 @@
 <form action="{{route('grades.update')}}" id="editForm" method="POST">
   @method('put')
   @csrf
-  <div class="modal-dialog ">
+  <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="myModalLabel">Penilaian Alternatif</h5>

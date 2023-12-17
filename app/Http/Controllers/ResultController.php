@@ -7,18 +7,22 @@ use App\Http\Controllers\CalculationController;
 use App\Models\Alternative;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Arr;
+use App\Models\Criteria;
 
 class ResultController extends Controller
 {
     public function index(){
-
         $calculatioObj = new CalculationsController;
-        $alternatives = Alternative::all();
-        $decisionMatrix = $calculatioObj->getDecisionMatrix();
+        $alternatives = Alternative::where('user_id', '=', auth()->user()->id)->get();
+        $criteria = Criteria::where('user_id', '=', auth()->user()->id)->get();
+        if(count($criteria) == 0 || count($alternatives) == 0){
+            return view('modal.calculationModal.noCalculationModal');
+        }
+        $decisionMatrix = $calculatioObj->getDecisionMatrix($alternatives);
         $normMatrix = $calculatioObj->norm($decisionMatrix);
-        $weightedNorm = $calculatioObj->getWeightedNorm($normMatrix);
-        $idealPositive = $calculatioObj->getIdealPositive($weightedNorm);
-        $idealNegative = $calculatioObj->getIdealNegative($weightedNorm);
+        $weightedNorm = $calculatioObj->getWeightedNorm($normMatrix, $criteria);
+        $idealPositive = $calculatioObj->getIdealPositive($weightedNorm, $criteria);
+        $idealNegative = $calculatioObj->getIdealNegative($weightedNorm, $criteria);
         $solutionPositive = $calculatioObj->getSolutionPositive($weightedNorm, $idealPositive);
         $solutionNegative = $calculatioObj->getSolutionNegative($weightedNorm, $idealNegative);
         $PreferenceValue = $calculatioObj->getPreferenceValue($solutionPositive, $solutionNegative);

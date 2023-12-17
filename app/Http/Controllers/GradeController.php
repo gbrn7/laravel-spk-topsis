@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 class GradeController extends Controller
 {
     public function index(){
-        $alternatives = Alternative::all();
+        $alternatives = Alternative::where('user_id', '=', auth()->user()->id)->get();
         return view('grade', compact('alternatives'));
     }
 

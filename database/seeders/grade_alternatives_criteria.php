@@ -18,28 +18,105 @@ class grade_alternatives_criteria extends Seeder
             [
                 'alternative_id' => 1,
                 'criteria_id' => 1,
-                'grade' => 12,
+                'grade' => 5,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
                 'alternative_id' => 1,
                 'criteria_id' => 2,
-                'grade' => 15,
+                'grade' => 5,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'alternative_id' => 1,
+                'criteria_id' => 3,
+                'grade' => 4,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'alternative_id' => 1,
+                'criteria_id' => 4,
+                'grade' => 3,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'alternative_id' => 1,
+                'criteria_id' => 5,
+                'grade' => 4,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
                 'alternative_id' => 2,
                 'criteria_id' => 1,
-                'grade' => 58,
+                'grade' => 3,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
                 'alternative_id' => 2,
                 'criteria_id' => 2,
-                'grade' => 20,
+                'grade' => 5,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'alternative_id' => 2,
+                'criteria_id' => 3,
+                'grade' => 3,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'alternative_id' => 2,
+                'criteria_id' => 4,
+                'grade' => 4,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'alternative_id' => 2,
+                'criteria_id' => 5,
+                'grade' => 5,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'alternative_id' => 3,
+                'criteria_id' => 1,
+                'grade' => 3,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'alternative_id' => 3,
+                'criteria_id' => 2,
+                'grade' => 3,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'alternative_id' => 3,
+                'criteria_id' => 3,
+                'grade' => 3,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'alternative_id' => 3,
+                'criteria_id' => 4,
+                'grade' => 5,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'alternative_id' => 3,
+                'criteria_id' => 5,
+                'grade' => 4,
                 'created_at' => now(),
                 'updated_at' => now()
             ],

@@ -16,12 +16,20 @@ class alternativesSeeder extends Seeder
     {
         DB::table('alternatives')->insert([
             [
-                'name' => 'Asus TUF Gaming 16',
+                'name' => 'Gramapuri Persada',
+                'user_id' => 1,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'name' => 'HP 14s',
+                'name' => 'Kota Serang Baru',
+                'user_id' => 1,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Mega Regency',
+                'user_id' => 1,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

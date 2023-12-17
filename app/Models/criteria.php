@@ -15,6 +15,7 @@ class Criteria extends Model
         'name',
         'weight',
         'benefited',
+        'user_id',
     ];
 
     public function getTableColumns()

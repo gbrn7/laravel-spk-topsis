@@ -11,7 +11,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 class CriteriaController extends Controller
 {
     public function index(){
-        $criteria = Criteria::all();
+        $criteria = Criteria::where('user_id', '=', auth()->user()->id)->get();
         $columns = (new Criteria)->getTableColumns();
 
         return view('criteria', ['criteria' => $criteria]);
@@ -26,7 +26,7 @@ class CriteriaController extends Controller
         ]);
         $newCriteria = Criteria::create($newCriteria);
 
-        $allAlternative = Alternative::all();
+        $allAlternative = Alternative::where('user_id', '=', auth()->user()->id)->get();
         $gradeData = [];
         foreach ($allAlternative as $alternative) {
             array_push($gradeData, [
