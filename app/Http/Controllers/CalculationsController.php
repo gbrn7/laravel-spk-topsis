@@ -51,11 +51,16 @@ class CalculationsController extends Controller
     public function norm($decisionMatrix){
         $divider = $this->getNormDivider($decisionMatrix);
         $result = [];
+        // dd($divider);
 
         for ($i=0; $i < count($decisionMatrix); $i++) { 
             $temp = [];
             for ($j=0; $j < count($decisionMatrix[$i]); $j++) { 
-                array_push($temp, $decisionMatrix[$i][$j]/$divider[$j]);
+                if ($divider[$j] != 0) {
+                    array_push($temp, $decisionMatrix[$i][$j]/$divider[$j]);
+                }else{
+                    array_push($temp, 0);
+                }
             }
             // dd($decisionMatrix, $divider, $temp);
             array_push($result, $temp);

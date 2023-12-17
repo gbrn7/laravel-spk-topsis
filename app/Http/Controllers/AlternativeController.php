@@ -19,6 +19,8 @@ class AlternativeController extends Controller
         $request->validate([
             'name' => 'required|string',
         ]);
+        $newAlternative['user_id'] = auth()->user()->id;
+
         $newAlternative = Alternative::create($newAlternative);
 
         $allCriteria = Criteria::where('user_id', '=', auth()->user()->id)->get();

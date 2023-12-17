@@ -24,6 +24,8 @@ class CriteriaController extends Controller
             'weight' => 'required|numeric|min:0',
             'benefited' => 'required|numeric|min:0|max:1',
         ]);
+        $newCriteria['user_id'] = auth()->user()->id;
+
         $newCriteria = Criteria::create($newCriteria);
 
         $allAlternative = Alternative::where('user_id', '=', auth()->user()->id)->get();
