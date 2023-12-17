@@ -26,7 +26,6 @@ class CalculationsController extends Controller
         // dd($decisionMatrix, $normMatrix, $weightedNorm, $idealPositive, $idealNegative, $solutionPositive, $solutionNegative, $PreferenceValue);
         return view('calculation', compact('decisionMatrix', 'normMatrix', 'weightedNorm', 'idealPositive', 'idealNegative', 'solutionPositive', 'solutionNegative', 'PreferenceValue', 'criteria', 'alternatives'));
     }
-    
 
     public function getDecisionMatrix(){
         $alternatives = Alternative::all();

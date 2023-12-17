@@ -8,6 +8,7 @@ use App\Http\Controllers\CriteriaController;
 use App\Http\Controllers\AlternativeController;
 use App\Http\Controllers\GradeController;
 use App\Http\Controllers\CalculationsController;
+use App\Http\Controllers\ResultController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,11 +52,9 @@ Route::group(['prefix' => 'topsis', 'middleware' => ['auth']], function(){
         Route::put('/update', [GradeController::class, 'update'])->name('grades.update');   
     });
 
-    Route::prefix('calculations')->group(function () {
-        Route::get('/', [CalculationsController::class, 'index'])->name('calculations');   
-        // Route::get('/getForms', [EvaluationController::class, 'getForms'])->name('grades.getForms');   
-        // Route::put('/update', [EvaluationController::class, 'update'])->name('grades.update');   
-    });
+        Route::get('/calculations', [CalculationsController::class, 'index'])->name('calculations');    
+
+        Route::get('/results', [ResultController::class, 'index'])->name('results');    
 
     Route::get('logout', [AuthController::class, 'logout'])->name('signin.logout');
 });

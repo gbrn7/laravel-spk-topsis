@@ -33,8 +33,9 @@
           class="text-decoration-none px-3 py-3 rounded rounded-2 d-flex align-items-baseline"><i
             class="ri-calculator-line me-2"></i></i>Data Perhitungan</a>
       </li>
-      <li class="rounded {{Request::segment(2) === 'result' ? 'active' : ''}} rounded-2">
-        <a href="#" class="text-decoration-none px-3 py-3 rounded rounded-2 d-flex align-items-baseline"><i
+      <li class="rounded {{Request::segment(2) === 'results' ? 'active' : ''}} rounded-2">
+        <a href="{{route('results')}}"
+          class="text-decoration-none px-3 py-3 rounded rounded-2 d-flex align-items-baseline"><i
             class="ri-sort-asc me-2"></i></i>Data Hasil Akhir</a>
       </li>
     </ul>

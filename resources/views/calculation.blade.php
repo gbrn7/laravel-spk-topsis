@@ -20,7 +20,7 @@
       <i class="ri-table-2"></i>Matriks Keputusan
     </div>
     <div class="card-body p-1">
-      <table id="table" class="table table-striped table-hover " style="width: 100%">
+      <table id="decisionMatrix" class="table table-striped table-hover " style="width: 100%">
         <thead>
           <tr>
             <th>Kode Alternatif</th>
@@ -44,12 +44,12 @@
       </table>
     </div>
   </div>
-  <div class="card" id="Matrik Ternormalisasi">
+  <div class="card">
     <div class="card-header d-flex gap-1">
       <i class="ri-table-2"></i>Matriks Ternormalisasi
     </div>
     <div class="card-body p-1">
-      <table id="table" class="table table-striped table-hover " style="width: 100%">
+      <table id="normMatrix" class="table table-striped table-hover " style="width: 100%">
         <thead>
           <tr>
             <th>Kode Alternatif</th>
@@ -78,7 +78,7 @@
       <i class="ri-table-2"></i>Matriks Ternormalisasi Terbobot
     </div>
     <div class="card-body p-1">
-      <table id="table" class="table table-striped table-hover " style="width: 100%">
+      <table id="weightedNorm" class="table table-striped table-hover " style="width: 100%">
         <thead>
           <tr>
             <th>Kode Alternatif</th>
@@ -107,7 +107,7 @@
       <i class="ri-table-2"></i>Solusi Ideal Positif (A+)
     </div>
     <div class="card-body p-1">
-      <table id="table" class="table table-striped table-hover " style="width: 100%">
+      <table id="idealPositive" class="table table-striped table-hover " style="width: 100%">
         <thead>
           <tr>
             <th>Kode Kriteria</th>
@@ -131,7 +131,7 @@
       <i class="ri-table-2"></i>Solusi Ideal Negatif (A-)
     </div>
     <div class="card-body p-1">
-      <table id="table" class="table table-striped table-hover " style="width: 100%">
+      <table id="idealNegative" class="table table-striped table-hover " style="width: 100%">
         <thead>
           <tr>
             <th>Kode Kriteria</th>
@@ -155,7 +155,7 @@
       <i class="ri-table-2"></i>Jarak Ideal Positif (S+)
     </div>
     <div class="card-body p-1">
-      <table id="table" class="table table-striped table-hover " style="width: 100%">
+      <table id="solutionPositive" class="table table-striped table-hover " style="width: 100%">
         <thead>
           <tr>
             <th>Kode Alternatif</th>
@@ -179,7 +179,7 @@
       <i class="ri-table-2"></i>Jarak Ideal Negatif (S-)
     </div>
     <div class="card-body p-1">
-      <table id="table" class="table table-striped table-hover " style="width: 100%">
+      <table id="solutionNegative" class="table table-striped table-hover " style="width: 100%">
         <thead>
           <tr>
             <th>Kode Alternatif</th>
@@ -203,7 +203,7 @@
       <i class="ri-table-2"></i>Kedekatan Relatif Terhadap Solusi Ideal (V)
     </div>
     <div class="card-body p-1">
-      <table id="table" class="table table-striped table-hover " style="width: 100%">
+      <table id="PreferenceValue" class="table table-striped table-hover " style="width: 100%">
         <thead>
           <tr>
             <th>Kode Alternatif</th>
@@ -224,3 +224,18 @@
   </div>
 </div>
 @endsection
+
+@push('js')
+<script>
+  $(document).ready(function () {
+  $('#decisionMatrix').DataTable();
+  $('#normMatrix').DataTable();
+  $('#weightedNorm').DataTable();
+  $('#idealPositive').DataTable();
+  $('#idealNegative').DataTable();
+  $('#solutionPositive').DataTable();
+  $('#solutionNegative').DataTable();
+  $('#PreferenceValue').DataTable();
+  });
+</script>
+@endpush
