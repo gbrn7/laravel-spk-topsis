@@ -14,58 +14,32 @@
     </ol>
   </nav>
 </div>
-<div class="content-box p-3 mt-3 rounded rounded-2 bg-white d-flex flex-column gap-4">
+<div class="content-box px-3 pt-3 pb-5 mt-3 rounded rounded-2 bg-white d-flex flex-column gap-4">
   <div class="card" id="Matriks Keputusan">
     <div class="card-header d-flex gap-1">
       <i class="ri-table-2"></i>Matriks Keputusan
     </div>
     <div class="card-body p-1">
-      <table id="example" class="table table-striped table-hover " style="width: 100%">
+      <table id="table" class="table table-striped table-hover " style="width: 100%">
         <thead>
           <tr>
             <th>Kode Alternatif</th>
-            <th>C1</th>
-            <th>C2</th>
-            <th>C3</th>
-            <th>C4</th>
+            @foreach ($decisionMatrix[0] as $value)
+            <th>C{{$loop->iteration}}</th>
+            @endforeach
           </tr>
         </thead>
         <tbody>
+          @foreach ($decisionMatrix as $values)
           <tr>
-            <td>A1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>6</td>
-            <td>7</td>
+            @foreach ($values as $value)
+            @if ($loop->first)
+            <td>A{{$loop->parent->iteration}}</td>
+            @endif
+            <td>{{$value}}</td>
+            @endforeach
           </tr>
-          <tr>
-            <td>A2</td>
-            <td>2</td>
-            <td>5</td>
-            <td>7</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td>A3</td>
-            <td>4</td>
-            <td>4</td>
-            <td>7</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td>A4</td>
-            <td>7</td>
-            <td>5</td>
-            <td>6</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td>A5</td>
-            <td>9</td>
-            <td>3</td>
-            <td>2</td>
-            <td>1</td>
-          </tr>
+          @endforeach
         </tbody>
       </table>
     </div>
@@ -75,52 +49,26 @@
       <i class="ri-table-2"></i>Matriks Ternormalisasi
     </div>
     <div class="card-body p-1">
-      <table id="example" class="table table-striped table-hover " style="width: 100%">
+      <table id="table" class="table table-striped table-hover " style="width: 100%">
         <thead>
           <tr>
             <th>Kode Alternatif</th>
-            <th>C1</th>
-            <th>C2</th>
-            <th>C3</th>
-            <th>C4</th>
+            @foreach ($normMatrix[0] as $value)
+            <th>C{{$loop->iteration}}</th>
+            @endforeach
           </tr>
         </thead>
         <tbody>
+          @foreach ($normMatrix as $values)
           <tr>
-            <td>A1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>6</td>
-            <td>7</td>
+            @foreach ($values as $value)
+            @if ($loop->first)
+            <td>A{{$loop->parent->iteration}}</td>
+            @endif
+            <td>{{$value}}</td>
+            @endforeach
           </tr>
-          <tr>
-            <td>A2</td>
-            <td>2</td>
-            <td>5</td>
-            <td>7</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td>A3</td>
-            <td>4</td>
-            <td>4</td>
-            <td>7</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td>A4</td>
-            <td>7</td>
-            <td>5</td>
-            <td>6</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td>A5</td>
-            <td>9</td>
-            <td>3</td>
-            <td>2</td>
-            <td>1</td>
-          </tr>
+          @endforeach
         </tbody>
       </table>
     </div>
@@ -130,52 +78,26 @@
       <i class="ri-table-2"></i>Matriks Ternormalisasi Terbobot
     </div>
     <div class="card-body p-1">
-      <table id="example" class="table table-striped table-hover " style="width: 100%">
+      <table id="table" class="table table-striped table-hover " style="width: 100%">
         <thead>
           <tr>
             <th>Kode Alternatif</th>
-            <th>C1</th>
-            <th>C2</th>
-            <th>C3</th>
-            <th>C4</th>
+            @foreach ($weightedNorm[0] as $value)
+            <th>C{{$loop->iteration}}</th>
+            @endforeach
           </tr>
         </thead>
         <tbody>
+          @foreach ($weightedNorm as $values)
           <tr>
-            <td>A1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>6</td>
-            <td>7</td>
+            @foreach ($values as $value)
+            @if ($loop->first)
+            <td>A{{$loop->parent->iteration}}</td>
+            @endif
+            <td>{{$value}}</td>
+            @endforeach
           </tr>
-          <tr>
-            <td>A2</td>
-            <td>2</td>
-            <td>5</td>
-            <td>7</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td>A3</td>
-            <td>4</td>
-            <td>4</td>
-            <td>7</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td>A4</td>
-            <td>7</td>
-            <td>5</td>
-            <td>6</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td>A5</td>
-            <td>9</td>
-            <td>3</td>
-            <td>2</td>
-            <td>1</td>
-          </tr>
+          @endforeach
         </tbody>
       </table>
     </div>
@@ -185,47 +107,45 @@
       <i class="ri-table-2"></i>Solusi Ideal Positif (A+)
     </div>
     <div class="card-body p-1">
-      <table id="example" class="table table-striped table-hover " style="width: 100%">
+      <table id="table" class="table table-striped table-hover " style="width: 100%">
         <thead>
           <tr>
-            <th>C1</th>
-            <th>C2</th>
-            <th>C3</th>
-            <th>C4</th>
+            <th>Kode Kriteria</th>
+            <th>Nama Kriteria</th>
+            <th>Solusi Ideal Positif (A+)</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>2</td>
-            <td>3</td>
-            <td>6</td>
-            <td>7</td>
-          </tr>
+          @for ($i = 0; $i < count($idealPositive); $i++) <tr>
+            <td>C{{$i+1}}</td>
+            <td>{{$criteria[$i]->name}}</td>
+            <td>{{$idealPositive[$i]}}</td>
+            </tr>
+            @endfor
         </tbody>
       </table>
     </div>
   </div>
   <div class="card">
     <div class="card-header d-flex gap-1">
-      <i class="ri-table-2"></i>Solusi Ideal Positif (A-)
+      <i class="ri-table-2"></i>Solusi Ideal Negatif (A-)
     </div>
     <div class="card-body p-1">
-      <table id="example" class="table table-striped table-hover " style="width: 100%">
+      <table id="table" class="table table-striped table-hover " style="width: 100%">
         <thead>
           <tr>
-            <th>C1</th>
-            <th>C2</th>
-            <th>C3</th>
-            <th>C4</th>
+            <th>Kode Kriteria</th>
+            <th>Nama Kriteria</th>
+            <th>Solusi Ideal Negatif (A-)</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>2</td>
-            <td>3</td>
-            <td>6</td>
-            <td>7</td>
-          </tr>
+          @for ($i = 0; $i < count($idealNegative); $i++) <tr>
+            <td>C{{$i+1}}</td>
+            <td>{{$criteria[$i]->name}}</td>
+            <td>{{$idealNegative[$i]}}</td>
+            </tr>
+            @endfor
         </tbody>
       </table>
     </div>
@@ -235,7 +155,7 @@
       <i class="ri-table-2"></i>Jarak Ideal Positif (S+)
     </div>
     <div class="card-body p-1">
-      <table id="example" class="table table-striped table-hover " style="width: 100%">
+      <table id="table" class="table table-striped table-hover " style="width: 100%">
         <thead>
           <tr>
             <th>Kode Alternatif</th>
@@ -244,21 +164,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>A1</td>
-            <td>ASUS TUF Gaming</td>
-            <td>0.3649494</td>
-          </tr>
-          <tr>
-            <td>A2</td>
-            <td>HP 14S</td>
-            <td>0.21323494</td>
-          </tr>
-          <tr>
-            <td>A1</td>
-            <td>Lenovo Ideapad</td>
-            <td>0.9863</td>
-          </tr>
+          @for ($i = 0; $i < count($solutionPositive); $i++) <tr>
+            <td>A{{$i+1}}</td>
+            <td>{{$alternatives[$i]->name}}</td>
+            <td>{{$solutionPositive[$i]}}</td>
+            </tr>
+            @endfor
         </tbody>
       </table>
     </div>
@@ -268,30 +179,21 @@
       <i class="ri-table-2"></i>Jarak Ideal Negatif (S-)
     </div>
     <div class="card-body p-1">
-      <table id="example" class="table table-striped table-hover " style="width: 100%">
+      <table id="table" class="table table-striped table-hover " style="width: 100%">
         <thead>
           <tr>
             <th>Kode Alternatif</th>
             <th>Nama Alternatif</th>
-            <th>Jarak Ideal Negatif (S-)</th>
+            <th>Jarak Ideal Positif (S+)</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>A1</td>
-            <td>ASUS TUF Gaming</td>
-            <td>0.3649494</td>
-          </tr>
-          <tr>
-            <td>A2</td>
-            <td>HP 14S</td>
-            <td>0.21323494</td>
-          </tr>
-          <tr>
-            <td>A1</td>
-            <td>Lenovo Ideapad</td>
-            <td>0.9863</td>
-          </tr>
+          @for ($i = 0; $i < count($solutionNegative); $i++) <tr>
+            <td>A{{$i+1}}</td>
+            <td>{{$alternatives[$i]->name}}</td>
+            <td>{{$solutionNegative[$i]}}</td>
+            </tr>
+            @endfor
         </tbody>
       </table>
     </div>
@@ -301,30 +203,21 @@
       <i class="ri-table-2"></i>Kedekatan Relatif Terhadap Solusi Ideal (V)
     </div>
     <div class="card-body p-1">
-      <table id="example" class="table table-striped table-hover " style="width: 100%">
+      <table id="table" class="table table-striped table-hover " style="width: 100%">
         <thead>
           <tr>
             <th>Kode Alternatif</th>
             <th>Nama Alternatif</th>
-            <th>Nilai</th>
+            <th>Jarak Ideal Positif (S+)</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>A1</td>
-            <td>ASUS TUF Gaming</td>
-            <td>0.5656</td>
-          </tr>
-          <tr>
-            <td>A2</td>
-            <td>HP 14S</td>
-            <td>0.3232</td>
-          </tr>
-          <tr>
-            <td>A1</td>
-            <td>Lenovo Ideapad</td>
-            <td>0.21423</td>
-          </tr>
+          @for ($i = 0; $i < count($PreferenceValue); $i++) <tr>
+            <td>A{{$i+1}}</td>
+            <td>{{$alternatives[$i]->name}}</td>
+            <td>{{$PreferenceValue[$i]}}</td>
+            </tr>
+            @endfor
         </tbody>
       </table>
     </div>

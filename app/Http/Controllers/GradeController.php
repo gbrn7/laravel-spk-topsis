@@ -19,7 +19,7 @@ class GradeController extends Controller
         $forms = Grade::with([
             'alternative',
             'criteria',
-        ])->where('id', $id)->get();
+        ])->where('alternative_id', $id)->get();
 
         return view('modal.gradeModal.gradeForm', compact('forms'));
     }
