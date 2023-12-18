@@ -20,7 +20,7 @@
       <i class="ri-table-2"></i>Matriks Keputusan
     </div>
     <div class="card-body content p-1">
-      <table id="example" class="table table-striped table-hover " style="width: 100%">
+      <table id="rankTable" class="table table-striped table-hover " style="width: 100%">
         <thead>
           <tr>
             <th>Kode Alternatif</th>

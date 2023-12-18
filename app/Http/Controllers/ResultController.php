@@ -50,14 +50,18 @@ class ResultController extends Controller
         if($asc){
             $sortedResult = collect($pairedValues)->sortBy($sortBy);
         }else{
-            $sortedResult = collect($pairedValues)->sortByDesc($sortBy);
+            $sortedResult = collect($pairedValues)->sortByDesc('grade');
         }
 
+        // reset collection index
+        $sortedResult =  $sortedResult->values();
+
+        // Give Rank
         for ($i=0; $i < count($sortedResult); $i++) { 
             $sortedResult[$i]->rank = $i + 1;
         }
 
         // dd($sortedResult);
-        return $sortedResult;
+        return collect($sortedResult);
     }
 }
