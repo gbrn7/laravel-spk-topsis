@@ -161,6 +161,8 @@ class CalculationsController extends Controller
         $result = [];
         for ($i=0; $i < count($solutionPositive); $i++) { 
             $temp = ($solutionNegative[$i]/($solutionPositive[$i]+$solutionNegative[$i]));
+            $temp = number_format($temp, 4);
+            // dd($temp);
             array_push($result, $temp);
         }
 

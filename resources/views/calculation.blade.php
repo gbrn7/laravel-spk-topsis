@@ -184,7 +184,7 @@
           <tr>
             <th>Kode Alternatif</th>
             <th>Nama Alternatif</th>
-            <th>Jarak Ideal Positif (S+)</th>
+            <th>Jarak Ideal Negatif (S-)</th>
           </tr>
         </thead>
         <tbody>
@@ -208,7 +208,7 @@
           <tr>
             <th>Kode Alternatif</th>
             <th>Nama Alternatif</th>
-            <th>Jarak Ideal Positif (S+)</th>
+            <th>Kedekatan Relatif Terhadap Solusi Ideal (V))</th>
           </tr>
         </thead>
         <tbody>
