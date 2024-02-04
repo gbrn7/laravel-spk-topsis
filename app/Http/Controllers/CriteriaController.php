@@ -2,15 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ExportCriteria;
+use App\Imports\CriteriaImport;
 use Illuminate\Http\Request;
 use App\Models\Criteria;
 use App\Models\Alternative;
 use App\Models\GradeAlternativeCriteria;
-use RealRashid\SweetAlert\Facades\Alert;
+use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Collection;
 
 class CriteriaController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $criteria = Criteria::where('user_id', '=', auth()->user()->id)->get();
         $columns = (new Criteria)->getTableColumns();
 
@@ -56,5 +60,20 @@ class CriteriaController extends Controller
         $oldCriteria->update($updatedCriteria);
 
         return redirect()->route('criteria')->with('toast_success', 'Kriteria '.$request->name.' diperbarui!');
+    }
+
+    public function exportExcel()
+    {
+        return Excel::download(new ExportCriteria, 'Kriteria.xlsx');
+    }
+
+    public function importCriteria(Request $request)
+    {
+        Excel::import(new CriteriaImport, request()->file('criteria'));
+        return back()->with('toast_success', 'Sukses impor');
+    }
+
+    public function getCriteriaTemplate(){
+        return response()->download(public_path('template/templatecriteria.xlsx'), 'TemplateImpor.xlsx');
     }
 }

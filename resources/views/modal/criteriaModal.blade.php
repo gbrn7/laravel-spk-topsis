@@ -79,6 +79,34 @@
   </form>
 </div>
 
+
+<!-- Import Criteria Modal -->
+<div class="modal fade" id="importModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog ">
+    <form action="{{route('template.criteria.import')}}" method="post" enctype="multipart/form-data">
+      @csrf
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="myModalLabel">Tambah Kriteria</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="template-wrapper p-2 border border-2 rounded-2 text-center">
+            <a href="{{route('template.criteria')}}">impor-kriteria.xlsx</a>
+          </div>
+          <div class="impor-wrapper mt-2 p-2 border border-2 rounded-2 text-center">
+            <input type="file" name="criteria">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
 <!-- Delete Modal -->
 <div class="modal fade" id="deletemodal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog ">
@@ -100,5 +128,4 @@
       </form>
     </div>
   </div>
-</div>
 </div>

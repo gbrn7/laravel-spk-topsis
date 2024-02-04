@@ -31,12 +31,16 @@ Route::post('/signUp', [SignUpController::class, 'store'])->name('signUp.store')
 
 Route::group(['prefix' => 'topsis', 'middleware' => ['auth']], function(){
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
+    
+    
     Route::prefix('criteria')->group(function () {
         Route::get('/', [CriteriaController::class, 'index'])->name('criteria');   
         Route::post('/store', [CriteriaController::class, 'store'])->name('criteria.store');   
         Route::put('/update', [CriteriaController::class, 'update'])->name('criteria.update');   
         Route::delete('/destroy', [CriteriaController::class, 'delete'])->name('criteria.destroy');   
+        Route::get('/export/excel', [CriteriaController::class, 'exportExcel'])->name('criteria.export.excel');   
+        Route::get('/template', [CriteriaController::class, 'getCriteriaTemplate'])->name('template.criteria');
+        Route::post('/template', [CriteriaController::class, 'importCriteria'])->name('template.criteria.import');
     });
 
     Route::prefix('alternatives')->group(function () {
